@@ -1,5 +1,4 @@
-#ifndef STUDENTS_DB_SUBJECT_H
-#define STUDENTS_DB_SUBJECT_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -7,9 +6,6 @@
 using namespace std;
 
 struct Subject {
-    string subject_name;
+    string name;
     vector<int> marks;
 };
-
-
-#endif //STUDENTS_DB_SUBJECT_H
