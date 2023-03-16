@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+struct Model.Subject {
+    + name : string
+    + marks[] : int
+}
+struct Model.Student {
++ first_name : string
++ last_name : string
++ subjects[] : Subject
+}
+Model.Subject *-- Student
+
+class Helper.ConsoleHelper {
++ PrintStudents(students[] : Student) : void
++ PrintStudent(student : Student) : void
++ PrintSubjects(subjects[] : Subject) : void
++ PrintSubject(subject : Subject) : void
+}
+Model <.. Helper.ConsoleHelper
+
+class Helper.FileHelper {
++ ImportFromFile(path : string) : Student[]
+}
+Model <.. Helper.FileHelper
+Parsing <.. Helper.FileHelper
+
+class Parsing {
++ StudentParser(str : string) : Student
++ SubjectsParser(str : string) : Subject[]
++ SubjectParser(str : string) : Subject
++ MarksParser(str : string) : int[]
++ MarkParser(str : string) : int
++ Parsing(str string, delimiter : char) : string
+}
+Model <.. Parsing
+
+@enduml
