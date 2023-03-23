@@ -3,14 +3,14 @@
 #include <fstream>
 #include <string>
 
-#include "Student.h"
-#include "Subject.h"
-#include "Parsing.h"
+#include "../model/Student.h"
+#include "../model/Subject.h"
+#include "../Parsing.h"
 
 using namespace std;
 
-vector<Student> ImportFromFile(string path) {
-    vector<Student> students;
+vector<Student*> ImportFromFile(string path) {
+    vector<Student*> students;
 
     ifstream file;
     file.open(path);

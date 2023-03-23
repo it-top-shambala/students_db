@@ -10,5 +10,5 @@ using namespace std;
 struct Student {
     string first_name;
     string last_name;
-    vector<Subject> subjects;
+    vector<Subject*> subjects;
 };

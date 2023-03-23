@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "Student.h"
-#include "Subject.h"
+#include "model/Student.h"
+#include "model/Subject.h"
 
 using namespace std;
 
@@ -30,19 +30,19 @@ vector<int> MarksParser(string str) {
     return marks;
 }
 
-Subject SubjectParser(string str) {
-    Subject subject;
+Subject* SubjectParser(string str) {
+    Subject* subject;
 
     string subject_name = Parsing(str, ',');
 
-    subject.name = subject_name;
-    subject.marks = MarksParser(str);
+    subject->name = subject_name;
+    subject->marks = MarksParser(str);
 
     return subject;
 }
 
-vector<Subject> SubjectsParser(string str) {
-    vector<Subject> subjects;
+vector<Subject*> SubjectsParser(string str) {
+    vector<Subject*> subjects;
     do {
         string temp = Parsing(str, ';');
         subjects.push_back(SubjectParser(temp));
@@ -51,12 +51,12 @@ vector<Subject> SubjectsParser(string str) {
     return subjects;
 }
 
-Student StudentParser(string str) {
-    Student student;
+Student* StudentParser(string str) {
+    Student* student;
     string last_name = Parsing(str, '|');
     string first_name = Parsing(str, '|');
-    student.last_name = last_name;
-    student.first_name = first_name;
-    student.subjects = SubjectsParser(str);
+    student->last_name = last_name;
+    student->first_name = first_name;
+    student->subjects = SubjectsParser(str);
     return student;
 }

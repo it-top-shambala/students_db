@@ -36,4 +36,13 @@ class Parsing {
 }
 Model <.. Parsing
 
+struct DB {
++ students[] : Students
++ InsertStudent(student : Student) : void
++ DeleteStudent(student : Student) : void
++ FindStudent(last_name : string) : Student
++ GetAllStudents() : Student[]
+}
+Model <.. DB
+
 @enduml
